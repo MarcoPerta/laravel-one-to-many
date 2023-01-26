@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="text-center">
-    <h1>Modifico il post: {{ $post->title }}</h1>  
+    <h1>Modifico il post: </h1>  
+    {{-- {{ $post->title }} --}}
 </div>
 
-<form action="{{ route('admin.posts.update', $post ->id) }}" method="POST">
+<form action="{{ route('admin.posts.update', $data ->id) }}" method="POST">
     @csrf
     @method('PUT')
 
@@ -27,6 +28,18 @@
                {{ $message }}
            </div>
         @enderror
+    </div>
+
+    <div class="my-3">
+        <label for="">Categories</label>
+        <select class="form-control" name="category_id" id="">
+            @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">
+                        {{ $category->id = old('category_id' , $post->category_id) ? 'selected' : '' }}
+                        {{ $category->name }}
+                    </option>
+            @endforeach
+        </select>
     </div>
 
     <button type="submit" class="btn btn-primary">Modifica</button>

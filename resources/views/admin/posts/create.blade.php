@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="text-center">
-    <h1>Crea un post</h1>  
+    <h1>Creo un post</h1>  
 </div>
 
 <form action="{{ route('admin.posts.store') }}" method="POST">
@@ -26,6 +26,17 @@
                {{ $message }}
            </div>
         @enderror
+    </div>
+
+    <div class="my-3">
+        <label for="">Categories</label>
+        <select class="form-control" name="category_id" id="">
+            @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+            @endforeach
+        </select>
     </div>
 
     <button type="submit" class="btn btn-primary">Crea</button>
