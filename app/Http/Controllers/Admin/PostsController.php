@@ -82,7 +82,9 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('admin.posts.edit', $post);
+        $categories = Category::All();
+
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**

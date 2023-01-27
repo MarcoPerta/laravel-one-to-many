@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="text-center">
-    <h1>Modifico il post: </h1>  
+    <h1>Modifico il post</h1>  
     {{-- {{ $post->title }} --}}
 </div>
 
-<form action="{{ route('admin.posts.update', $data ->id) }}" method="POST">
+<form action="{{ route('admin.posts.update', $post->id) }}" method="POST">
     @csrf
     @method('PUT')
 
